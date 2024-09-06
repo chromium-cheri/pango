@@ -602,7 +602,7 @@ pango_get_sysconf_subdirectory (void)
 {
   static const gchar *result = NULL; /* MT-safe */
 
-  if (g_once_init_enter (&result))
+  if (g_once_init_enter_pointer (&result))
     {
       const char *tmp_result = NULL;
       const char *sysconfdir = g_getenv ("PANGO_SYSCONFDIR");
@@ -610,7 +610,7 @@ pango_get_sysconf_subdirectory (void)
 	tmp_result = g_build_filename (sysconfdir, "pango", NULL);
       else
 	tmp_result = SYSCONFDIR "/pango";
-      g_once_init_leave(&result, tmp_result);
+      g_once_init_leave_pointer(&result, tmp_result);
     }
   return result;
 }
@@ -631,7 +631,7 @@ pango_get_lib_subdirectory (void)
 {
   static const gchar *result = NULL; /* MT-safe */
 
-  if (g_once_init_enter (&result))
+  if (g_once_init_enter_pointer (&result))
     {
       const gchar *tmp_result = NULL;
       const char *libdir = g_getenv ("PANGO_LIBDIR");
@@ -639,7 +639,7 @@ pango_get_lib_subdirectory (void)
 	tmp_result = g_build_filename (libdir, "pango", NULL);
       else
 	tmp_result = LIBDIR "/pango";
-      g_once_init_leave(&result, tmp_result);
+      g_once_init_leave_pointer(&result, tmp_result);
     }
   return result;
 }

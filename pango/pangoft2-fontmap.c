@@ -292,8 +292,8 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 PangoFontMap *
 pango_ft2_font_map_for_display (void)
 {
-  if (g_once_init_enter (&pango_ft2_global_fontmap))
-    g_once_init_leave (&pango_ft2_global_fontmap, PANGO_FT2_FONT_MAP (pango_ft2_font_map_new ()));
+  if (g_once_init_enter_pointer (&pango_ft2_global_fontmap))
+    g_once_init_leave_pointer (&pango_ft2_global_fontmap, PANGO_FT2_FONT_MAP (pango_ft2_font_map_new ()));
 
   return PANGO_FONT_MAP (pango_ft2_global_fontmap);
 }

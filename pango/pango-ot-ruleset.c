@@ -87,8 +87,8 @@ pango_ot_ruleset_get_for_description (PangoOTInfo                     *info,
 {
   static PangoOTRuleset *ruleset; /* MT-safe */
 
-  if (g_once_init_enter (&ruleset))
-    g_once_init_leave (&ruleset, g_object_new (PANGO_TYPE_OT_RULESET, NULL));
+  if (g_once_init_enter_pointer (&ruleset))
+    g_once_init_leave_pointer (&ruleset, g_object_new (PANGO_TYPE_OT_RULESET, NULL));
 
   return ruleset;
 }

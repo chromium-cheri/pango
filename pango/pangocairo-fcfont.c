@@ -210,8 +210,8 @@ get_gravity_class (void)
 {
   static GEnumClass *class = NULL; /* MT-safe */
 
-  if (g_once_init_enter (&class))
-    g_once_init_leave(&class, (gpointer)g_type_class_ref (PANGO_TYPE_GRAVITY));
+  if (g_once_init_enter_pointer (&class))
+    g_once_init_leave_pointer(&class, (gpointer)g_type_class_ref (PANGO_TYPE_GRAVITY));
 
   return class;
 }

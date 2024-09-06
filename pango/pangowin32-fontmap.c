@@ -833,8 +833,8 @@ _pango_win32_font_map_class_init (PangoWin32FontMapClass *class)
 PangoFontMap *
 pango_win32_font_map_for_display (void)
 {
-  if (g_once_init_enter ((gsize*)&default_fontmap))
-    g_once_init_leave((gsize*)&default_fontmap, (gsize)g_object_new (PANGO_TYPE_WIN32_FONT_MAP, NULL));
+  if (g_once_init_enter_pointer ((gsize*)&default_fontmap))
+    g_once_init_leave_pointer((gsize*)&default_fontmap, (gsize)g_object_new (PANGO_TYPE_WIN32_FONT_MAP, NULL));
 
   return PANGO_FONT_MAP (default_fontmap);
 }
